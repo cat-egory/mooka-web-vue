@@ -33,7 +33,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios'
   ],
+  axios: {
+    proxy: true     // proxy 사용
+  },
+  proxy: {
+    '/prefix-url': 'proxy-url'    // proxy url
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
