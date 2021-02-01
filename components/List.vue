@@ -6,7 +6,9 @@
             </span>
             <input type="text" class="form-control" :value="item.content" />
             <span class="input-group-btn"
-                ><button type="button" class="btn btn-info" @click="removeItem(item.id)">x</button></span
+                ><button type="button" class="btn btn-info" @click="removeItem(item.id)">
+                    x
+                </button></span
             >
         </div>
     </div>
@@ -14,6 +16,7 @@
 
 <script lang="ts">
 import vue from 'vue';
+import Component from 'vue-class-component';
 
 interface ItemList {
     id: number;
@@ -21,7 +24,8 @@ interface ItemList {
     status: string;
 }
 
-export default class LIst extends vue {
+@Component
+export default class List extends vue {
     itemList: ItemList[] = [
         { id: 1, content: '씻기', status: 'clear' },
         { id: 2, content: '준비하기', status: 'clear' },

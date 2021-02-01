@@ -7,12 +7,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import List from '@/components/List.vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
+@Component({
     components: {
         List,
     },
-});
+})
+export default class index extends Vue {}
 </script>
 
 <style>
