@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import vue from 'vue';
-import Component from 'vue-class-component';
+// import vue from 'vue';
+import { Vue, Component } from 'nuxt-property-decorator';
 
 interface ItemList {
     id: number;
@@ -25,7 +25,7 @@ interface ItemList {
 }
 
 @Component
-export default class List extends vue {
+export default class List extends Vue {
     itemList: ItemList[] = [
         { id: 1, content: '씻기', status: 'clear' },
         { id: 2, content: '준비하기', status: 'clear' },

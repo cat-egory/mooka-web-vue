@@ -2,23 +2,29 @@
     <div class="full_wrap">
         <Header></Header>
         <List></List>
+        <Create></Create>
     </div>
 </template>
 
 <script lang="ts">
-import List from '@/components/List.vue';
+import Vue from 'vue';
+import List from '~/components/List.vue';
 import Header from '~/components/Header.vue';
-// import Create from '~/components/Create.vue';
-import { Vue, Component } from 'nuxt-property-decorator';
+import Create from '~/components/Create.vue';
+import { Component } from 'nuxt-property-decorator';
 
 @Component({
     components: {
         List,
         Header,
-        // Create,
+        Create,
     },
 })
 export default class Index extends Vue {}
 </script>
 
-<style scoped></style>
+<style scoped>
+.full_wrap {
+    padding: 100px;
+}
+</style>
