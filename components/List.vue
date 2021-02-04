@@ -5,7 +5,7 @@
                 <input type="checkbox" :checked="item.status == 'clear'" />
             </span>
             <input type="text" class="form-control" :value="item.content" />
-            <span class="input-group-btn"
+            <span class="input-group-btn1"
                 ><button type="button" class="btn btn-info" @click="removeItem(item.id)">
                     x
                 </button></span

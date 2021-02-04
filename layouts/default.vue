@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <Nuxt />
-  </div>
+    <div>
+        <Nuxt />
+    </div>
 </template>
 
 <style>
+/*
 html {
   font-family:
     'Source Sans Pro',
@@ -58,5 +59,5 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
+}*/
 </style>
