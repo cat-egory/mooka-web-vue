@@ -15,6 +15,7 @@
                 </button></span
             >
         </div>
+        {{ yetList }}
     </div>
 </template>
 
@@ -31,12 +32,13 @@ interface ItemList {
 export default class List extends Vue {
     itemList: ItemList[] = [];
     mounted() {
-        console.log('here');
+        // console.log('here', this.$route.params);
     }
 
     created() {
         this.itemList = this.$store.state.Todo.itemList;
     }
+
     initItem() {
         this.itemList = this.$store.state.Todo.itemList;
     }
@@ -46,20 +48,29 @@ export default class List extends Vue {
         this.initItem();
     }
     changeStatus(item: ItemList) {
-        console.log(this.$route.params.status);
         this.$store.commit('Todo/changeStatus', item);
         this.initItem();
     }
 
-    @Watch('$route.params.status')
+    @Watch('$route.params.status', { immediate: true, deep: true })
     routeUpdate(newValue: string) {
+        console.log(this.$route.params, newValue);
         if (!newValue) {
-            this.itemList = this.$store.state.Todo.itemList;
+            this.initItem();
         } else if (newValue === 'yet') {
-            this.itemList = this.$store.getters.Todo.setYet;
+            // this.itemList = this.$store.getters.setYet;
+            this.itemList = this.yetList;
+            console.log(this.itemList);
         } else {
-            this.itemList = this.$store.getters.Todo.setClear;
+            this.itemList = this.clearList;
         }
+    }
+
+    get yetList() {
+        return this.itemList.filter((item: ItemList) => item.status === 'yet');
+    }
+    get clearList() {
+        return this.itemList.filter((item: ItemList) => item.status === 'clear');
     }
 }
 </script>

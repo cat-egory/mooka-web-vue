@@ -1,4 +1,4 @@
-import { Module, VuexMutation, VuexModule } from 'nuxt-property-decorator';
+import { Module, VuexMutation, Getter, VuexModule } from 'nuxt-property-decorator';
 
 interface ItemList {
     id: number;
@@ -42,8 +42,11 @@ export default class Todo extends VuexModule {
     }
 
     get setYet() {
-        return this.itemList.filter((item: ItemList) => item.status === 'yet');
+        const yetList = this.itemList.filter((item: ItemList) => item.status === 'yet');
+        console.log('yetList', yetList);
+        return yetList;
     }
+
     get setClear() {
         return this.itemList.filter((item: ItemList) => item.status === 'clear');
     }
